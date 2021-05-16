@@ -14,7 +14,7 @@ class LSTMModel(BaseModel):
         self.input_dim = input_dim
         self.input_shape = input_shape
     
-    def model_arch(self):
+    def __model_arch(self):
         i = Input(shape=(self.input_shape,))
         x = Embedding(self.input_dim + 1, self.embedding_dim)(i)
         x = LSTM(self.lstm_units, return_sequences=True)(x)
@@ -24,6 +24,7 @@ class LSTMModel(BaseModel):
         
     
     def fit(self, x: np.ndarray, y: np.ndarray, validation_data: Tuple(np.ndarray), loss: str, optimizer: str, metrics: List(str), epochs: int):
+        self.__model_arch()
         self.model.compile(loss=loss,optimizer=optimizer,metrics=metrics)
         self.model.fit(x, y, epochs=epochs, validation_data=validation_data)
     
