@@ -23,7 +23,7 @@ class LSTMModel(BaseModel):
         self.model = Model(i, x)
         
     
-    def fit(self, x: np.ndarray, y: np.ndarray, validation_data: Tuple(np.ndarray), loss: str, optimizer: str, metrics: List(str), epochs: int):
+    def fit(self, x: np.ndarray, y: np.ndarray, validation_data: Tuple(np.ndarray), loss: str, optimizer: str, metrics: List[str], epochs: int):
         self.__model_arch()
         self.model.compile(loss=loss,optimizer=optimizer,metrics=metrics)
         self.model.fit(x, y, epochs=epochs, validation_data=validation_data)
