@@ -7,15 +7,15 @@ class BaseModel(ABC):
         raise NotImplementedError()
     
     @abstractmethod
-    def model_arch(self):
+    def _model_arch(self):
         raise NotImplementedError()
     
     @abstractmethod
-    def fit(self, x, y):
+    def fit(self, X, y):
         raise NotImplementedError()
     
     @abstractmethod
-    def predict(self, x):
+    def predict(self, X):
         raise NotImplementedError()
     
     @abstractmethod

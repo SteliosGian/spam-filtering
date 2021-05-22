@@ -13,7 +13,6 @@ class TokenizerToSequence(BaseEstimator, TransformerMixin):
     def fit(self, x: pd.DataFrame, y: pd.DataFrame = None):
         self.tokenizer = Tokenizer(num_words=self.num_words)
         self.tokenizer.fit_on_texts(x)
-        
         return self
         
     def transform(self, x: pd.DataFrame) -> list:
