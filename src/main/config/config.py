@@ -18,9 +18,9 @@ NUM_WORDS = 2000
 
 MAXLEN = 189
 
-FEATURES=
+FEATURES=['data']
 
-TARGET=
+TARGET=['b_labels']
 
 ########################################
 ############# Train Config #############
