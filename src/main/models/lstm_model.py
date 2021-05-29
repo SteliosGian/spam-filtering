@@ -6,37 +6,33 @@ from models.base_model import BaseModel
 from sklearn.base import BaseEstimator, ClassifierMixin
 
 
-class LSTMModel(BaseModel, BaseEstimator, ClassifierMixin):
+class LSTMModel(BaseModel):
     """
     Long Short-term Memory Neural Network.
     """
     def __init__(self, lstm_units: int = 15, 
                  embedding_dim: int = 20, input_dim: int = 7295, 
-                 input_shape: int = 189, validation_data: Optional[Tuple[np.ndarray]] = None, 
+                 input_shape: int = 189, 
                  loss: str = 'binary_crossentropy', optimizer: str = 'adam', 
-                 metrics: List[str] = ['accuracy'], epochs: int = 2):
+                 metrics: List[str] = ['accuracy']):
         """
         Initialize the LSTM model.
         :param lstm_units: Number of units in a layer
         :param embedding_dim: Embedding dimension
         :param input_dim: Input dimension
         :param input_shape: Input shape
-        :param validation_data: Validation data
         :param loss: Loss function
         :param optimizer: Model optimizer
         :param metrics: Metrics for evaluation
-        :param epochs: Number of epochs
         :return: Initialized model
         """
         self.lstm_units = lstm_units
         self.embedding_dim = embedding_dim
         self.input_dim = input_dim
         self.input_shape = input_shape
-        self.validation_data = validation_data
         self.loss = loss
         self. optimizer = optimizer
         self.metrics = metrics
-        self.epochs = epochs
     
     def _model_arch(self) -> Model:
         """
@@ -49,17 +45,20 @@ class LSTMModel(BaseModel, BaseEstimator, ClassifierMixin):
         x = GlobalMaxPooling1D()(x)
         x = Dense(1, activation='sigmoid')(x)
         self.model = Model(i, x)
+        self.model.compile(loss=self.loss, optimizer=self.optimizer, metrics=self.metrics)
+        return self
         
-    def fit(self, X: np.ndarray, y: np.ndarray):
+    def fit(self, X: np.ndarray, y: np.ndarray, epochs = 2, validation_data = None):
         """
         Train the model.
         :param X: Predictors array
         :param y: Target feature
+        :param epochs: Number of epochs
+        :param validation_data: A tuple of validation data (x_test, y_test)
         :return: Class instance
         """
         self._model_arch()
-        self.model.compile(loss=self.loss, optimizer=self.optimizer, metrics=self.metrics)
-        self.model.fit(X, y, epochs=self.epochs, validation_data=self.validation_data)
+        self.model.fit(X, y, epochs=epochs, validation_data=validation_data)
         return self
     
     def predict(self, X: np.ndarray) -> np.ndarray:
