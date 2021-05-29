@@ -11,7 +11,7 @@ class LSTMModel(BaseModel, BaseEstimator, ClassifierMixin):
                  embedding_dim: int = 20, input_dim: int = 7295, 
                  input_shape: int = 189, validation_data: Optional[Tuple[np.ndarray]] = None, 
                  loss: str = 'binary_crossentropy', optimizer: str = 'adam', 
-                 metrics: List[str] = ['accuracy'], epochs: int = 10):
+                 metrics: List[str] = ['accuracy'], epochs: int = 2):
         self.lstm_units = lstm_units
         self.embedding_dim = embedding_dim
         self.input_dim = input_dim

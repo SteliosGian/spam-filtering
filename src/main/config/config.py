@@ -18,14 +18,19 @@ NUM_WORDS = 2000
 
 MAXLEN = 189
 
-FEATURES=['data']
+FEATURES = 'data'
 
-TARGET=['b_labels']
+TARGET = 'b_labels'
 
 ########################################
 ############# Train Config #############
 ########################################
 
+PIPELINE_SAVE_FILE = 'pipe'
+
+TEST_SIZE = 0.33
+
+RANDOM_STATE = 42
 
 ########################################
 ############# Predict Config ###########
