@@ -5,14 +5,17 @@ from tensorflow.keras.models import load_model
 
 
 def run_prediction(opts):
+    """Generate predictions"""
+    
+    # Load the dataset, pipeline, and model
     data = load_dataset(path=opts.source)
-    
     pipe = load_pipeline(path=opts.pipe_path, file_name='pipe.pkl')
-    
     model = load_model(opts.model_path)
     
+    # Transform the data
     proc_data = pipe.transform(data[config.FEATURES])
     
+    # Generate predictions
     preds = model.predict(proc_data)
     return preds
 

@@ -6,7 +6,14 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 
 class TokenizerToSequence(BaseEstimator, TransformerMixin):
+    """
+    Convert text to sequences.
+    """
     def __init__(self, num_words: int):
+        """
+        Initialize the TokenizerToSequence
+        :param num_words: The maximum number of words in a sentence.
+        """
         self.num_words = num_words
     
     def fit(self, x: pd.DataFrame, y: pd.DataFrame = None):
@@ -20,7 +27,14 @@ class TokenizerToSequence(BaseEstimator, TransformerMixin):
 
 
 class PaddingSequences(BaseEstimator, TransformerMixin):
+    """
+    Pad sequences.
+    """
     def __init__(self, maxlen: int):
+        """
+        Initialize the PaddingSequences
+        :param maxlen: Maximum length of sequences
+        """
         self.maxlen = maxlen
     
     def fit(self, x, y=None):

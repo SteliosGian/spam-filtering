@@ -16,13 +16,15 @@ def run_training(opts) -> None:
                                                         test_size=config.TEST_SIZE,
                                                         random_state=config.RANDOM_STATE)
 
-    # Fit the pipeline
+    # Fit and transform the pipeline
     pipe.fit(X_train)
     proc_data_x = pipe.transform(X_train)
     
+    # Initialize and fit the model
     model = LSTMModel()
     model.fit(proc_data_x, y_train)
     
+    # Save the trained model
     model.save(opts.model_path)
     
     # Save the pipeline

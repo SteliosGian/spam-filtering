@@ -2,6 +2,9 @@ from abc import ABC, abstractmethod
 
 
 class BaseModel(ABC):
+    """
+    Base model template
+    """
     @abstractmethod
     def __init__(self):
         raise NotImplementedError()
