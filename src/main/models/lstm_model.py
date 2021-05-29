@@ -30,7 +30,6 @@ class LSTMModel(BaseModel, BaseEstimator, ClassifierMixin):
         x = Dense(1, activation='sigmoid')(x)
         self.model = Model(i, x)
         
-    
     def fit(self, X: np.ndarray, y: np.ndarray):
         self._model_arch()
         self.model.compile(loss=self.loss, optimizer=self.optimizer, metrics=self.metrics)

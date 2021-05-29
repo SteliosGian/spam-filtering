@@ -2,10 +2,6 @@
 ######### Preprocessing Config #########
 ########################################
 
-# DATASET_DIR = "src/data/"
-
-# TRAINED_MODEL_DIR = "src/trained_models/"
-
 FEATURES_TO_DROP = ['Unnamed: 2',
                     'Unnamed: 3',
                     'Unnamed: 4']

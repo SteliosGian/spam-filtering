@@ -6,7 +6,6 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 
 class TokenizerToSequence(BaseEstimator, TransformerMixin):
-    
     def __init__(self, num_words: int):
         self.num_words = num_words
     
@@ -21,7 +20,6 @@ class TokenizerToSequence(BaseEstimator, TransformerMixin):
 
 
 class PaddingSequences(BaseEstimator, TransformerMixin):
-    
     def __init__(self, maxlen: int):
         self.maxlen = maxlen
     
