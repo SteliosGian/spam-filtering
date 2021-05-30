@@ -19,10 +19,11 @@ def run_training(opts) -> None:
     # Fit and transform the pipeline
     pipe.fit(X_train)
     proc_data_x = pipe.transform(X_train)
+    proc_data_test = pipe.transform(X_test)
     
     # Initialize and fit the model
     model = LSTMModel()
-    model.fit(proc_data_x, y_train)
+    model.fit(proc_data_x, y_train, epochs=10, validation_data=(proc_data_test, y_test))
     
     # Save the trained model
     model.save(opts.model_path)

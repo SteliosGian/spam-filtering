@@ -8,6 +8,10 @@ pandas="*"
 numpy="*"
 tensorflow = "*"
 sklearn = "*"
+fastapi = "*"
+uvicorn = "*"
+jinja2 = "*"
+python-multipart = "*"
 
 [dev-packages]
 jupyterlab="*"
