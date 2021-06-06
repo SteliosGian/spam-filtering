@@ -59,7 +59,11 @@ Go to the directory where the Pipfile is located (/src) and type "pipenv install
 
 
 ## Roadmap
-
+<ul>
+  <li>Containerize the application</li>
+  <li>Set up CI/CD pipeline</li>
+  <li>Deploy on Heroku</li>
+</ul>
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-white.svg?
 [linkedin-url]: https://linkedin.com/in/stelios-giannikis
