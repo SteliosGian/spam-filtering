@@ -28,13 +28,13 @@
 
 Predicting whether a message is spam or ham using Deep Learning methods.
 
+
 ### Built With
 
 * [Docker](https://www.docker.com/)
 * [Pipenv](https://pipenv-fork.readthedocs.io/en/latest/)
 * [TensorFlow](https://www.tensorflow.org/)
 * [FastAPI](https://fastapi.tiangolo.com/)
-
 
 
 ## Getting Started
@@ -49,13 +49,11 @@ After that, the API will be available at http://127.0.0.1:8000/predict
 In the form, you can type a message an it will predict if the message is a spam or not.
 
 
-
 ### Prerequisites
 Go to the directory where the Pipfile is located (/src) and type "pipenv install".
 
 
 ### Notes
-
 
 
 ## Roadmap

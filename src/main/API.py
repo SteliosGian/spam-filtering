@@ -11,11 +11,11 @@ templates = Jinja2Templates(directory="templates/")
 
 @app.get('/')
 def read_root():
-    return 'This is a Spam Detector'
+    return 'Spam detector'
 
 @app.get('/predict')
 def form_post(request: Request):
-    result = "Type a word"
+    result = "Type a phrase"
     return templates.TemplateResponse('form.html', context={'request': request, 'result':result})
 
 
