@@ -11,6 +11,5 @@ RUN pip install -r requirements.txt
 COPY ./src/ .
 
 # Copy docker entrypoints
-COPY ./docker/entrypoints/docker-entrypoint-prediction.sh .
 COPY ./docker/entrypoints/docker-entrypoint-training.sh .
 COPY ./docker/settings.sh .
