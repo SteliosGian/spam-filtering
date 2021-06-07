@@ -1,10 +1,5 @@
 FROM python:3.8-buster
 
-# The zscaler.pem file is needed to run the dockerfile locally.
-COPY ./docker/zscaler.pem /usr/local/share/ca-certificates/zscaler.crt
-ENV AWS_CA_BUNDLE /usr/local/share/ca-certificates/zscaler.crt
-ENV CURL_CA_BUNDLE /usr/local/share/ca-certificates/zscaler.crt
-ENV REQUESTS_CA_BUNDLE /usr/local/share/ca-certificates/zscaler.crt
 
 WORKDIR usr/src/app
 
