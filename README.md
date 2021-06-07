@@ -69,7 +69,7 @@ Install the required Python libraries from the "requirements.txt" file.
 
 ## Roadmap
 <ul>
-  <li>Containerize the application</li>
+  <li>Containerize the application &#9745; </li>
   <li>Set up CI/CD pipeline</li>
   <li>Deploy on Heroku</li>
 </ul>
