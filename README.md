@@ -37,13 +37,25 @@ Predicting whether a message is spam or ham using Deep Learning methods.
 
 
 ## Getting Started
-To set up the server, clone the repo and run the following commands
+This projects starts a server where the API is running.
+
+To start, move to the docker directory by running
+
 ```Bash
-cd src/main/
-uvicorn API:app --reload
+cd docker/
 ```
 
-After that, the API will be available at http://127.0.0.1:8000/predict 
+After that, run the following commands. First, we build the docker image using docker-compose.
+```Bash
+docker compose build
+```
+
+And then, run the application inside the docker container.
+```Bash
+docker compose up
+```
+
+After that, the API will be available at http://0.0.0.0:8000/predict 
 
 In the form, you can type a message an it will predict if the message is a spam or not.
 
