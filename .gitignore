@@ -1,5 +1,7 @@
 src/main/notebooks/
 src/main/data
+src/Pipfile
+src/Pipfile.lock
 .pyc
 .DS_Store
 src/main/__pycache__/
