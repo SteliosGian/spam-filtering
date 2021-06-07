@@ -1,5 +1,6 @@
 src/main/notebooks/
-src/main/data
+src/main/data/archive/
+src/main/data/spam.csv
 src/Pipfile
 src/Pipfile.lock
 .pyc
