@@ -1,9 +1,11 @@
 import argparse
+import numpy as np
 from pipeline import pipe
 from preprocess.data_manager import load_dataset, save_pipeline
 from sklearn.model_selection import train_test_split
 from config import config
 from models.lstm_model import LSTMModel
+from mlflow_funcs.logging import log_metrics
 
 
 def run_training(opts) -> None:
@@ -23,7 +25,15 @@ def run_training(opts) -> None:
     
     # Initialize and fit the model
     model = LSTMModel()
-    model.fit(proc_data_x, y_train, epochs=10, validation_data=(proc_data_test, y_test))
+    model.fit(proc_data_x, y_train, epochs=2, validation_data=(proc_data_test, y_test))
+    
+    params = model.get_numeric_params
+    avg_metrics = {}
+    for key, value in model.model.history.history.items():
+        avg_metrics[key] = np.mean(value)
+    print(avg_metrics)
+    
+    log_metrics(metrics=avg_metrics, params=params, tracking_uri=config.TRACKING_URI, experiment_name='test_experiment')
     
     # Save the trained model
     model.save(opts.model_path)

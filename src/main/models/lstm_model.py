@@ -1,9 +1,8 @@
 import numpy as np
-from typing import List, Tuple, Optional
+from typing import List
 from tensorflow.keras.layers import Dense, Input, GlobalMaxPooling1D, LSTM, Embedding
 from tensorflow.keras.models import Model
 from models.base_model import BaseModel
-from sklearn.base import BaseEstimator, ClassifierMixin
 
 
 class LSTMModel(BaseModel):
@@ -11,9 +10,10 @@ class LSTMModel(BaseModel):
     Long Short-term Memory Neural Network.
     """
     def __init__(self, lstm_units: int = 15, 
-                 embedding_dim: int = 20, input_dim: int = 7295, 
-                 input_shape: int = 189, 
-                 loss: str = 'binary_crossentropy', optimizer: str = 'adam', 
+                 embedding_dim: int = 20, 
+                 input_dim: int = 7295, 
+                 loss: str = 'binary_crossentropy', 
+                 optimizer: str = 'adam', 
                  metrics: List[str] = ['accuracy']):
         """
         Initialize the LSTM model.
@@ -29,7 +29,6 @@ class LSTMModel(BaseModel):
         self.lstm_units = lstm_units
         self.embedding_dim = embedding_dim
         self.input_dim = input_dim
-        self.input_shape = input_shape
         self.loss = loss
         self. optimizer = optimizer
         self.metrics = metrics
@@ -57,8 +56,10 @@ class LSTMModel(BaseModel):
         :param validation_data: A tuple of validation data (x_test, y_test)
         :return: Class instance
         """
+        self.epochs = epochs
+        self.input_shape = X.shape[1]
         self._model_arch()
-        self.model.fit(X, y, epochs=epochs, validation_data=validation_data)
+        self.model.fit(X, y, epochs=self.epochs, validation_data=validation_data)
         return self
     
     def predict(self, X: np.ndarray) -> np.ndarray:
@@ -77,3 +78,14 @@ class LSTMModel(BaseModel):
         :return: None
         """
         self.model.save(path)
+    
+    @property
+    def get_numeric_params(self):
+        return {'lstm_units': self.lstm_units,
+                'embedding_dim': self.embedding_dim,
+                'input_dim': self.input_dim,
+                'loss': self.loss,
+                'optimizer': self.optimizer,
+                'metrics': self.metrics,
+                'epochs': self.epochs
+                }

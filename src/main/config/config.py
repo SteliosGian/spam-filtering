@@ -22,6 +22,8 @@ TARGET = 'b_labels'
 ############# Train Config #############
 ########################################
 
+TRACKING_URI = "../tracking"
+
 PIPELINE_SAVE_FILE = 'pipe'
 
 TEST_SIZE = 0.33
