@@ -34,7 +34,6 @@ def run_training(opts) -> None:
     avg_metrics = {}
     for key, value in model.model.history.history.items():
         avg_metrics[key] = np.mean(value)
-    print(avg_metrics)
     
     log_metrics(metrics=avg_metrics, params=params, tracking_uri=config.TRACKING_URI, experiment_name='test_experiment')
     
