@@ -80,7 +80,9 @@ class LSTMModel(BaseModel):
         self.model.save(path)
     
     @property
-    def get_numeric_params(self):
+    def get_numeric_params(self) -> dict:
+        """Get the parameters"""
+        
         return {'lstm_units': self.lstm_units,
                 'embedding_dim': self.embedding_dim,
                 'input_dim': self.input_dim,
