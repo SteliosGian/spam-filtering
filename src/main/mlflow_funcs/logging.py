@@ -1,5 +1,4 @@
 import mlflow
-import numpy as np
 
 
 def log_metrics(metrics: dict, 
