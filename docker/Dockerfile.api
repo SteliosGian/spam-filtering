@@ -9,7 +9,3 @@ RUN pip install -r requirements.txt
 
 # Copy project files
 COPY ./src/main/ .
-
-# Copy docker entrypoints
-COPY ./docker/entrypoints/docker-entrypoint-training.sh .
-COPY ./docker/settings.sh .
