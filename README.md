@@ -34,6 +34,7 @@ Predicting whether a message is spam or ham using Deep Learning methods.
 * [Docker](https://www.docker.com/)
 * [TensorFlow](https://www.tensorflow.org/)
 * [FastAPI](https://fastapi.tiangolo.com/)
+* [MLflow](https://mlflow.org/)
 
 
 ## Getting Started
