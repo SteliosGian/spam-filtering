@@ -1,5 +1,3 @@
-import pandas as pd
-import numpy as np
 from fastapi import FastAPI, Request, Form
 from fastapi.templating import Jinja2Templates
 from predict import run_prediction
