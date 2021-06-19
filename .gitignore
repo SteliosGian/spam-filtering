@@ -8,3 +8,4 @@ src/Pipfile.lock
 src/main/__pycache__/
 docker/zscaler.pem
 tracking/
+docs/
