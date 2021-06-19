@@ -15,11 +15,11 @@ class TokenizerToSequence(BaseEstimator, TransformerMixin):
         :param num_words: The maximum number of words in a sentence.
         """
         self.num_words = num_words
+        self.tokenizer = Tokenizer(num_words=self.num_words)
     
     def fit(self, x: pd.DataFrame, y: pd.DataFrame = None):
-        self.tokenizer = Tokenizer(num_words=self.num_words)
         self.tokenizer.fit_on_texts(x)
-        return self
+        return self.tokenizer
         
     def transform(self, x: pd.DataFrame) -> list:
         sequences = self.tokenizer.texts_to_sequences(x)
