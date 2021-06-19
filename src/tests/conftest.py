@@ -1,5 +1,5 @@
 import sys
-# sys.path.insert(0, 'main')
+sys.path.insert(0, 'main')
 import pytest
 from preprocess.data_manager import load_dataset
 
