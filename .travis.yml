@@ -1,0 +1,17 @@
+language: python
+
+services:
+  - docker
+
+python:
+  - 3.8
+
+before_install:
+  - docker-compose -f docker/docker-compose.yml build
+  - docker ps -a
+  - python --version
+
+install:
+  - pip install -U pip
+
+script: cd src; pytest tests/
