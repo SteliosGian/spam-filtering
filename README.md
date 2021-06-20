@@ -16,6 +16,7 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
+        <li><a href="#how-to-train">How To Train</a></li>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#notes">Notes</a></li>
       </ul>
