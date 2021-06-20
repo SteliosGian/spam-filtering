@@ -1,5 +1,6 @@
 # Spam Filtering with TensorFlow
 
+[![Build Status](https://www.travis-ci.com/SteliosGian/spam-filtering.svg?branch=master)](https://www.travis-ci.com/SteliosGian/spam-filtering)
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- TABLE OF CONTENTS -->
