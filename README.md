@@ -27,7 +27,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Predicting whether a message is spam or ham using Deep Learning methods.
+This projects predicts whether a message is either Spam or Not Spam using a <a href="https://en.wikipedia.org/wiki/Long_short-term_memory" target="_blank">Long Short-term Memory Network</a>(LSTM).
+<br>
+The predictions are served through an API which is run in a Docker container.
+
+The dataset for this project is taken from <a href="https://www.kaggle.com/uciml/sms-spam-collection-dataset" target="_blank">Kaggle</a>. Download it and place it in the "src/main/data/" directory.
+
 
 
 ### Built With
@@ -61,6 +66,21 @@ docker compose up
 After that, the API will be available at http://0.0.0.0:8000/predict 
 
 In the form, you can type a message an it will predict if the message is a spam or not.
+
+
+### How To Train
+The LSTM model is trained using the train.py file located at "src/main/train.py".
+
+Additionally, if the MLflow server is up and running, the metrics and hyperparameters are tracked and saved.
+
+To train the model, follow these steps:
+
+```Bash
+cd src
+python3 main/train.py --source main/data/spam.csv --pipe_path main/trained_pipe --model_path main/trained_models
+```
+
+The "source", "pipe_path", and "model_path" are mandatory arguments to train the model. There are additional optional arguments to specify the hyperparameters to be used. These can be found in the "train.py" file.
 
 
 ### Prerequisites

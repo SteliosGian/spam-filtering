@@ -27,10 +27,10 @@ def get_sequence():
 
 def test_TokenizerToSequence_fit(get_data, get_TokenizerToSequence):
     # When
-    fitted_tokenizer = get_TokenizerToSequence.fit(x = get_data[config.FEATURES])
+    get_TokenizerToSequence.fit(x = get_data[config.FEATURES])
     # Then
-    assert len(fitted_tokenizer.word_counts) > 0
-    assert fitted_tokenizer.document_count == get_data.shape[0]
+    assert len(get_TokenizerToSequence.tokenizer.word_counts) > 0
+    assert get_TokenizerToSequence.tokenizer.document_count == get_data.shape[0]
 
 
 def test_TokenizerToSequence_transform(get_data, get_TokenizerToSequence):

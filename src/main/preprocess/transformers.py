@@ -19,7 +19,7 @@ class TokenizerToSequence(BaseEstimator, TransformerMixin):
     
     def fit(self, x: pd.DataFrame, y: pd.DataFrame = None):
         self.tokenizer.fit_on_texts(x)
-        return self.tokenizer
+        return self
         
     def transform(self, x: pd.DataFrame) -> list:
         sequences = self.tokenizer.texts_to_sequences(x)
